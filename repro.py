@@ -16,13 +16,14 @@ class ReproTest(unittest.TestCase):
         logging.getLogger(selenium_manager.__name__).setLevel(logging.DEBUG)
         chrome_opts = ChromeOptions()
         chrome_binary = os.getenv('CHROMIUM_BIN')
+        chromedriver_binary = os.getenv('CHROMEDRIVER_BIN')
         if chrome_binary:
             # Set Chrome options suitable for the continuous build
             chrome_opts.binary_location = chrome_binary
             chrome_opts.add_argument('--headless')
             chrome_opts.add_argument('--disable-gpu')
             chrome_opts.add_argument('--verbose')
-        cls.selenium = WebDriver(options=chrome_opts)
+        cls.selenium = WebDriver(options=chrome_opts, executable_path=chromedriver_binary)
         cls.selenium.implicitly_wait(10)
 
     @classmethod
