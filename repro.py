@@ -23,7 +23,7 @@ class ReproTest(unittest.TestCase):
             chrome_opts.add_argument('--headless')
             chrome_opts.add_argument('--disable-gpu')
             chrome_opts.add_argument('--verbose')
-        cls.selenium = WebDriver(options=chrome_opts, executable_path=chromedriver_binary)
+        cls.selenium = WebDriver(options=chrome_opts, service=Service(executable_path=chromedriver_binary))
         cls.selenium.implicitly_wait(10)
 
     @classmethod
