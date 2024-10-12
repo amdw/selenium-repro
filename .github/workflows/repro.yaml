@@ -1,0 +1,33 @@
+name: repro
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+jobs:
+  repro:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pipenv"
+      - uses: browser-actions/setup-chrome@v1
+        id: setup-chrome
+        with:
+          chrome-version: stable
+          install-chromedriver: true
+      - name: Show installed Chrome version
+        run: |
+          echo Installed chromium version ${{ steps.setup-chrome.outputs.chrome-version }}
+          ${{ steps.setup-chrome.outputs.chrome-path }} --version
+          ${{ steps.setup-chrome.outputs.chromedriver-path }} --help
+      - name: Install pipenv
+        run: pip install --user pipenv
+      - name: Install Python packages
+        run: pipenv sync
+      - name: Run repro
+        run: pipenv run python repro.py
+        env:
+          CHROMIUM_BIN: ${{ steps.setup-chrome.outputs.chrome-path }}
