@@ -22,6 +22,7 @@ jobs:
         run: |
           echo Installed chromium version ${{ steps.setup-chrome.outputs.chrome-version }}
           ${{ steps.setup-chrome.outputs.chrome-path }} --version
+          ${{ steps.setup-chrome.outputs.chrome-path }} --help
           ${{ steps.setup-chrome.outputs.chromedriver-path }} --help
       - name: Install pipenv
         run: pip install --user pipenv
