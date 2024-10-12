@@ -16,7 +16,7 @@ jobs:
       - uses: browser-actions/setup-chrome@v1
         id: setup-chrome
         with:
-          chrome-version: stable
+          chrome-version: 129.0.6668.89
           install-chromedriver: true
       - name: Show installed Chrome version
         run: |
