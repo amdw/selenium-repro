@@ -22,7 +22,10 @@ class ReproTest(unittest.TestCase):
             chrome_opts.binary_location = chrome_binary
             chrome_opts.add_argument('--headless')
             chrome_opts.add_argument('--disable-gpu')
+            chrome_opts.add_argument('--remote-debugging-pipe')
             chrome_opts.add_argument('--verbose')
+            # Suggested in https://issues.chromium.org/issues/42323434#comment63
+            chrome_opts.add_experimental_option('browserStartupTimeout', 1000000)
         cls.selenium = WebDriver(options=chrome_opts, service=Service(executable_path=chromedriver_binary, service_args=['--verbose']))
         cls.selenium.implicitly_wait(10)
 
