@@ -23,7 +23,7 @@ class ReproTest(unittest.TestCase):
             chrome_opts.add_argument('--headless')
             chrome_opts.add_argument('--disable-gpu')
             chrome_opts.add_argument('--verbose')
-            chrome_opts.add_experimental_option('browserStartupTimeout', 10000)
+            chrome_opts.add_experimental_option('browserStartupTimeout', 100000)
         cls.selenium = WebDriver(options=chrome_opts, service=Service(executable_path=chromedriver_binary, service_args=['--verbose']))
         cls.selenium.implicitly_wait(10)
 
