@@ -24,7 +24,7 @@ class ReproTest(unittest.TestCase):
             chrome_opts.add_argument('--disable-gpu')
             chrome_opts.add_argument('--verbose')
         cls.selenium = WebDriver(options=chrome_opts, service=Service(executable_path=chromedriver_binary, service_args=['--verbose']))
-        cls.selenium.implicitly_wait(10)
+        cls.selenium.implicitly_wait(9)
 
     @classmethod
     def tearDownClass(cls):
