@@ -6,6 +6,6 @@ As subsequently confirmed on the bug, this problem appears to be due to AppArmor
 
 https://issues.chromium.org/issues/42323434#comment74
 
-A more complete list of workarounds is available here:
+A list of workarounds is available here:
 
 https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
