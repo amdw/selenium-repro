@@ -14,7 +14,7 @@ jobs:
         with:
           python-version: "3.11"
           cache: "pipenv"
-      - uses: browser-actions/setup-chrome@v1
+      - uses: browser-actions/setup-chrome@v2
         id: setup-chrome
         with:
           chrome-version: stable
