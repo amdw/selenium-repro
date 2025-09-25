@@ -9,3 +9,5 @@ https://issues.chromium.org/issues/42323434#comment74
 A list of workarounds is available here:
 
 https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
+
+I opened https://github.com/browser-actions/setup-chrome/issues/639 to ask whether an appropriate workaround can be applied by the `setup-chrome` action when Chrome is installed.
